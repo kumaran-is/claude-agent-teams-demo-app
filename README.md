@@ -22,7 +22,7 @@ The application is a high-performance fitness tracker that manages the entire li
 *   **Automated Quality Gates:** Integrated **code reviews** and **security audits** (Auth, OWASP, secrets scanning) are triggered automatically as modules are completed.
 
 ## Quick Start
-Here's a ready-to-paste prompt for a new Claude Code session:   
+Here's a ready-to-paste prompt into a Claude Code session to launch the fitness app:   
 
 ```json
   Launch the Fitness App for local development.                                                                                                                                                                           
