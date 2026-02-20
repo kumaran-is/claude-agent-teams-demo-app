@@ -1,5 +1,19 @@
 # Claude Code Agent Teams: Full-Stack Fitness App Demo
 
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/kumaran-is/claude-agent-teams-demo-app)
+[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-blueviolet?style=flat&logo=anthropic&logoColor=white)](https://docs.anthropic.com/en/docs/claude-code)
+[![Blog: My Setup](https://img.shields.io/badge/Medium-My%20Claude%20Code%20Setup-000000?style=flat&logo=medium&logoColor=white)](https://medium.com/@kumaran.isk/claude-code-beyond-sub-agents-orchestrating-peer-to-peer-ai-with-agent-teams-3406d2169bfd)
+[![Blog: Practices](https://img.shields.io/badge/Medium-Practices%20That%20Fixed%20My%20Workflow-000000?style=flat&logo=medium&logoColor=white)](https://medium.com/@kumaran.isk/claude-code-agent-teams-a-7-agent-full-stack-app-playbook-f584a7fa1a69)
+
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=flat&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-6DB33F?style=flat&logo=springboot&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-3.38-02569B?style=flat&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-3.11-0175C2?style=flat&logo=dart&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=flat&logo=firebase&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+
 This project is a comprehensive demo of a full-stack application built using **Claude Code Agent Teams**. It demonstrates how to orchestrate seven specialized AI agents to handle parallel workstreams, manage shared contracts, and enforce dependency gating in a single terminal session.
 
 ## Overview
