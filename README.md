@@ -4,7 +4,7 @@ This project is a comprehensive demo of a full-stack application built using **C
 
 ## Overview
 The application is a high-performance fitness tracker that manages the entire lifecycle of user health data—from workout logging and exercise discovery to nutrition tracking and goal setting. 
-
+![Claude Code Master](./img/fitness_app_screens.png)
 
 ## Tech Stack
 *   **Mobile Frontend:** Flutter / Dart (iOS + Android)
