@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: fitness-api
+
+  r2dbc:
+    url: ${DATABASE_URL:r2dbc:postgresql://localhost:5432/fitnessapp}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    pool:
+      initial-size: 5
+      max-size: 20
+      max-idle-time: 30m
+
+  flyway:
+    enabled: ${FLYWAY_ENABLED:false}
+    url: ${FLYWAY_DATABASE_URL:jdbc:postgresql://localhost:5432/fitnessapp}
+    user: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    locations: classpath:db/migration
+
+  security:
+    user:
+      # Disable default Spring Security user (Firebase JWT is used instead)
+      name: disabled
+      password: disabled
+
+firebase:
+  credentials-path: ${FIREBASE_CREDENTIALS_PATH:firebase-credentials.json}
+  project-id: ${FIREBASE_PROJECT_ID}
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+logging:
+  level:
+    root: ${LOG_LEVEL:INFO}
+    com.fitnessapp: ${APP_LOG_LEVEL:DEBUG}
+  pattern:
+    console: '{"timestamp":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%level","logger":"%logger{36}","message":"%message"}%n'

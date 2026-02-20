@@ -1,0 +1,10 @@
+package com.fitnessapp.notifications.dto;
+
+import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalTime;
+
+public record NotificationPreferenceRequest(
+        @NotNull Boolean remindersEnabled,
+        LocalTime reminderTime
+) {}

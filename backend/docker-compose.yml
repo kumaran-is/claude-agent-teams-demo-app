@@ -1,0 +1,61 @@
+version: '3.9'
+
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: fitness-postgres
+    environment:
+      POSTGRES_DB: fitnessapp
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d fitnessapp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - fitness-net
+
+  fitness-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fitness-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: r2dbc:postgresql://postgres:5432/fitnessapp
+      FLYWAY_DATABASE_URL: jdbc:postgresql://postgres:5432/fitnessapp
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      FLYWAY_ENABLED: "true"
+      FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID}
+      FIREBASE_CREDENTIALS_PATH: /app/firebase-credentials.json
+      LOG_LEVEL: INFO
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount firebase credentials at runtime — do NOT bake into image
+      - ${FIREBASE_CREDENTIALS_PATH:-./firebase-credentials.json}:/app/firebase-credentials.json:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - fitness-net
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  fitness-net:
+    driver: bridge
